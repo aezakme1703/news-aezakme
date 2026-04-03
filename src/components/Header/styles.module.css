@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 24px;
+  background-color: #fff;
+  border-bottom: 1px solid #F2F4F5;
+  color: #090A0A;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.date {
+  font-size: 16px;
+  font-weight: 400;
+}
