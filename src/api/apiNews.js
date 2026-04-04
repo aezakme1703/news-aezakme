@@ -1,8 +1,14 @@
 const BASE_URL = import.meta.env.VITE_NEW_BASE_API_URL
 const API_KEY = import.meta.env.VITE_NEW_API_KEY
-const url = `${BASE_URL}?apiKey=${API_KEY}`;
 
-export const getNews = async() => {
+export const getNews = async(page_number = 1, page_size = 10) => {
+  const params = {
+      apiKey: API_KEY,
+      page_number: page_number,
+      page_size: page_size
+  }
+  const queryString = new URLSearchParams(params).toString()
+  const url = `${BASE_URL}?${queryString}`;
   try {
     const response = await fetch(url)
 
@@ -16,16 +22,3 @@ export const getNews = async() => {
     console.log(error)
   }
 }
-// export const getNews = async() => {
-//   try {
-//     const response = await axios.get(`${BASE_URL}latest-news`, {
-//       params: {
-//         apiKey: API_KEY
-//       }}
-//     )
-//     return response.data
-//   }
-//   catch(error) {
-//     console.log(error)
-//   }
-// }
