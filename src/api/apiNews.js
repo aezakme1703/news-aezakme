@@ -1,12 +1,13 @@
 const BASE_URL = import.meta.env.VITE_NEW_BASE_API_URL
 const API_KEY = import.meta.env.VITE_NEW_API_KEY
 
-export const getNews = async({page_number = 1, page_size = 10, category}) => {
+export const getNews = async({page_number = 1, page_size = 10, category, keywords}) => {
   const params = {
       apiKey: API_KEY,
       page_number: page_number,
       page_size: page_size,
-      category
+      category: category,
+      keywords: keywords
   }
   const queryString = new URLSearchParams(params).toString()
   const url = `${BASE_URL}search?${queryString}`;
